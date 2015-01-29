@@ -79,3 +79,24 @@ function initText() {
     PrintedPointText.position.set(-22, 13, -25);
     Scene.add(PrintedPointText);
 }
+
+function showResult() {
+    Scene.remove(PrintedPointText);
+    Scene.remove(PlayerMesh);
+    for(var i=0; i<PoyMeshes.length; i++) {
+	Scene.remove(PoyMeshes[i]);
+    }
+    for(var i=0; i<MonakaMeshes.length; i++) {
+	Scene.remove(MonakaMeshes[i]);
+    }
+
+    var textGeo = new THREE.TextGeometry( 'Score: '+Point, { 
+            size: 2, height: 1, curveSegments: 4,
+            font: "helvetiker", weight: "normal", style: "normal",
+            bevelEnabled: false
+    } );
+    var material = new THREE.MeshLambertMaterial( { color: 0xaa5555 } );
+    PrintedPointText = new THREE.Mesh(textGeo, material);
+    PrintedPointText.position.set(-5, 2, -20);
+    Scene.add(PrintedPointText);
+}

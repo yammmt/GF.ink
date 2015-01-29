@@ -13,8 +13,9 @@ function main() {
 }
 
 function loop() {
-    if(Life == 0) {
-	cancelAnimationFrame(loop);
+    if(Life == 0) { // game over
+	showResult();
+	Renderer.render(Scene, Camera);
     }
     else {
         requestAnimationFrame(loop);

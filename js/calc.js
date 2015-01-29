@@ -52,8 +52,7 @@ function breakPoy() {
 
 function breakMonaka() {
     Life--;
-    Point--; //tmp
-    genText(); //tmp
+    sphereSpeed -= 0.25;
 }
 
 function recalcObj(e) {
