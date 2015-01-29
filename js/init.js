@@ -4,6 +4,7 @@ function initThree() {
     initRenderer();
     initLight();
     initAxis();
+    initText();
 }
 
 function initScene() {
@@ -64,4 +65,17 @@ function initPlayer() {
     PlayerBody.addShape(shape);
     PlayerBody.velocity.set(0, -0.2, 0);
     World.add(PlayerBody);
+}
+
+function initText() {
+    //Scene.remove(PrintedPointText);
+    var textGeo = new THREE.TextGeometry( 'Score: '+Point, { 
+            size: 2, height: 1, curveSegments: 4,
+            font: "helvetiker", weight: "normal", style: "normal",
+            bevelEnabled: false
+    } );
+    var material = new THREE.MeshLambertMaterial( { color: 0x5555aa } );
+    PrintedPointText = new THREE.Mesh(textGeo, material);
+    PrintedPointText.position.set(-22, 13, -25);
+    Scene.add(PrintedPointText);
 }

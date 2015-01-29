@@ -25,6 +25,7 @@ function catchSphere(e) {
     //console.log("e.body: " + e.body); // e.body.position とか使える
     //console.log("e.contact: " + e.contact);
     Point++;
+    genText();
     console.log("point: " + Point);
     sphereSpeed += 0.5;
     recalcSphere(e);
@@ -52,4 +53,18 @@ function plusOrMinus() {
     else {
 	return -1;
     }
+}
+
+function genText() {
+    // set by manual
+    Scene.remove(PrintedPointText);
+    var textGeo = new THREE.TextGeometry( 'Score: '+Point, { 
+            size: 2, height: 1, curveSegments: 4,
+            font: "helvetiker", weight: "normal", style: "normal",
+            bevelEnabled: false
+    });
+    var material = new THREE.MeshLambertMaterial({ color: 0x5555aa });
+    PrintedPointText = new THREE.Mesh(textGeo, material);
+    PrintedPointText.position.set(-22, 13, -25);
+    Scene.add(PrintedPointText);
 }

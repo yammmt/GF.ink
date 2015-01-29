@@ -6,6 +6,7 @@ var Renderer;
 var Width, Height;
 var DeltaD = 0.04;
 var PlayerMesh;
+var PrintedPointText;
 
 // Cannon.js
 var World;
