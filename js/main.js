@@ -3,9 +3,9 @@ function main() {
     initCannon();
     initPlayer();
     for(var i=0; i<NumOfSphere; i++) {
-	addSphere();
+	addPoy();
     }
-    PlayerBody.addEventListener("collide", catchSphere);
+    PlayerBody.addEventListener("collide", recalcObj);
     loop();
 }
 
@@ -18,13 +18,13 @@ function loop() {
 function updatePhysics() {
     // applying Cannon.js's coordinates to Three.js's one
     World.step(TimeStep);
-    for(var i=0; i<PhysBodies.length; i++) {
-	if(PhysBodies[i].position.z > 3) { // passed player
-	    recalcSphere(PhysBodies[i]);
+    for(var i=0; i<PoyBodies.length; i++) {
+	if(PoyBodies[i].position.z > 3) { // passed player
+	    recalcObj(PoyBodies[i]);
 	}
 	else {
-	    PhysMeshes[i].position.copy(PhysBodies[i].position);
-	    PhysMeshes[i].quaternion.copy(PhysBodies[i].quaternion);
+	    PoyMeshes[i].position.copy(PoyBodies[i].position);
+	    PoyMeshes[i].quaternion.copy(PoyBodies[i].quaternion);
 	}
     }
     PlayerMesh.position.copy(PlayerBody.position);

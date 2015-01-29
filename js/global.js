@@ -4,7 +4,7 @@ var Camera;
 var TopCamera;
 var Renderer;
 var Width, Height;
-var DeltaD = 0.04;
+var DeltaD = 0.1;
 var PlayerMesh;
 var PrintedPointText;
 
@@ -12,8 +12,8 @@ var PrintedPointText;
 var World;
 var PlayerBody;
 var TimeStep = 1.0/60.0;
-var PhysBodies = []; // body of cannon.js
-var PhysMeshes = []; // mesh of three.js
+var PoyBodies = []; // body of cannon.js
+var PoyMeshes = []; // mesh of three.js
 
 // sphere's status
 var NumOfSphere = 4;
