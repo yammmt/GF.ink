@@ -2,7 +2,9 @@ function main() {
     initThree();
     initCannon();
     initPlayer();
-    addSphere();
+    for(var i=0; i<NumOfSphere; i++) {
+	addSphere();
+    }
     PlayerBody.addEventListener("collide", catchSphere);
     loop();
 }
@@ -17,14 +19,18 @@ function updatePhysics() {
     // applying Cannon.js's coordinates to Three.js's one
     World.step(TimeStep);
     for(var i=0; i<PhysBodies.length; i++) {
-	PhysMeshes[i].position.copy(PhysBodies[i].position);
-	PhysMeshes[i].quaternion.copy(PhysBodies[i].quaternion);
+	if(PhysBodies[i].position.z > 3) { // passed player
+	    recalcSphere(PhysBodies[i]);
+	}
+	else {
+	    PhysMeshes[i].position.copy(PhysBodies[i].position);
+	    PhysMeshes[i].quaternion.copy(PhysBodies[i].quaternion);
+	}
     }
     PlayerMesh.position.copy(PlayerBody.position);
     PlayerMesh.quaternion.copy(PlayerBody.quaternion);
 }
 
-window.addEventListener("DOMContentLoaded", main, false);
 window.addEventListener("keydown", function(e) {
     //console.log(e.keyCode);
     if(e.keyCode == 37) { // left
@@ -41,3 +47,4 @@ window.addEventListener("keydown", function(e) {
     }
 });
 
+window.addEventListener("DOMContentLoaded", main, false);

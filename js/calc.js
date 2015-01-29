@@ -1,9 +1,13 @@
 function addSphere() {
+    var tmpX = Math.random()*XRange*plusOrMinus();
+    var tmpY = Math.random()*YRange*plusOrMinus();
+    var tmpZ = -1*(Math.random()*ZRange+7);
+
     var sphereShape = new CANNON.Sphere(0.3);
     var sphereBody = new CANNON.Body({mass: 1});
     sphereBody.addShape(sphereShape);
     sphereBody.velocity.set(0, 0, sphereSpeed);
-    sphereBody.position.set(0, 1, -5);
+    sphereBody.position.set(tmpX, tmpY, tmpZ);
     sphereBody.collisionResponse = false;
     //sphereBody.addEventListener("collide", recalcSphere);
     PhysBodies.push(sphereBody);
@@ -12,31 +16,33 @@ function addSphere() {
     var sphereGeometry = new THREE.SphereGeometry(0.5);
     var sphereMaterial = new THREE.MeshPhongMaterial({color: 0x20ff8b});
     var sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphereMesh.position.set(3, 0, 0);
+    sphereMesh.position.set(tmpX, tmpY, tmpZ);
     PhysMeshes.push(sphereMesh);
     Scene.add(sphereMesh);
 }
 
 function catchSphere(e) {
-    console.log("caught!");
     //console.log("e.body: " + e.body); // e.body.position とか使える
     //console.log("e.contact: " + e.contact);
     Point++;
-    sphereSpeed += 0.4;
+    console.log("point: " + Point);
+    sphereSpeed += 0.5;
     recalcSphere(e);
 }
 
-function hittedByPlayer(e) {
-}
-
 function recalcSphere(e) {
-    console.log(e.body.position);
     var tmpX = Math.random()*XRange*plusOrMinus();
     var tmpY = Math.random()*YRange*plusOrMinus();
-    var tmpZ = -1*(Math.random()*ZRange+5);
-    e.body.position.set(tmpX, tmpY, tmpZ);
-    e.body.velocity.set(0, 0, sphereSpeed);
-    console.log(e.body.position);
+    var tmpZ = -1*(Math.random()*ZRange+7);
+    if(e.body) {
+	e.body.position.set(tmpX, tmpY, tmpZ);
+	e.body.velocity.set(0, 0, sphereSpeed);
+	console.log(e.body.position);
+    }
+    else {
+	e.position.set(tmpX, tmpY, tmpZ);
+	console.log(e.position);
+    }
 }
 
 function plusOrMinus() {

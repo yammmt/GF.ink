@@ -15,9 +15,10 @@ var PhysBodies = []; // body of cannon.js
 var PhysMeshes = []; // mesh of three.js
 
 // sphere's status
+var NumOfSphere = 4;
 var XRange = 5;
 var YRange = 3;
-var ZRange = 25;
+var ZRange = 15;
 
 // difficulty
 var Point = 0;

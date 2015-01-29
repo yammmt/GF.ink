@@ -3,7 +3,7 @@ function initThree() {
     initCamera();
     initRenderer();
     initLight();
-    //initAxis();
+    initAxis();
 }
 
 function initScene() {
