@@ -2,17 +2,25 @@ function main() {
     initThree();
     initCannon();
     initPlayer();
-    for(var i=0; i<NumOfSphere; i++) {
+    for(var i=0; i<NumOfPoy; i++) {
 	addPoy();
+    }
+    for(var i=0; i<NumOfMonaka; i++) {
+	addMonaka();
     }
     PlayerBody.addEventListener("collide", recalcObj);
     loop();
 }
 
 function loop() {
-    requestAnimationFrame(loop);
-    updatePhysics();
-    Renderer.render(Scene, Camera);
+    if(Life == 0) {
+	cancelAnimationFrame(loop);
+    }
+    else {
+        requestAnimationFrame(loop);
+        updatePhysics();
+        Renderer.render(Scene, Camera);
+    }
 }
 
 function updatePhysics() {
@@ -25,6 +33,15 @@ function updatePhysics() {
 	else {
 	    PoyMeshes[i].position.copy(PoyBodies[i].position);
 	    PoyMeshes[i].quaternion.copy(PoyBodies[i].quaternion);
+	}
+    }
+    for(var i=0; i<MonakaBodies.length; i++) {
+	if(MonakaBodies[i].position.z > 3) { // passed player
+	    recalcObj(MonakaBodies[i]);
+	}
+	else {
+	    MonakaMeshes[i].position.copy(MonakaBodies[i].position);
+	    MonakaMeshes[i].quaternion.copy(MonakaBodies[i].quaternion);
 	}
     }
     PlayerMesh.position.copy(PlayerBody.position);

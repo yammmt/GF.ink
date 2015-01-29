@@ -21,6 +21,29 @@ function addPoy() {
     Scene.add(sphereMesh);
 }
 
+function addMonaka() {
+    var tmpX = Math.random()*XRange*plusOrMinus();
+    var tmpY = Math.random()*YRange*plusOrMinus();
+    var tmpZ = -1*(Math.random()*ZRange+9);
+
+    var sphereShape = new CANNON.Sphere(0.3);
+    var sphereBody = new CANNON.Body({mass: 1});
+    sphereBody.addShape(sphereShape);
+    sphereBody.velocity.set(0, 0, sphereSpeed);
+    sphereBody.position.set(tmpX, tmpY, tmpZ);
+    sphereBody.collisionResponse = false;
+    sphereBody.addEventListener("collide", breakMonaka);
+    MonakaBodies.push(sphereBody);
+    World.add(sphereBody);
+
+    var sphereGeometry = new THREE.SphereGeometry(0.5);
+    var sphereMaterial = new THREE.MeshPhongMaterial({color: 0x783800});
+    var sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphereMesh.position.set(tmpX, tmpY, tmpZ);
+    MonakaMeshes.push(sphereMesh);
+    Scene.add(sphereMesh);
+}
+
 function breakPoy() {
     Point++;
     genText();
@@ -29,8 +52,8 @@ function breakPoy() {
 
 function breakMonaka() {
     Life--;
-    if(Life == 0){
-    }
+    Point--; //tmp
+    genText(); //tmp
 }
 
 function recalcObj(e) {

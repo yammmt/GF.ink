@@ -14,9 +14,12 @@ var PlayerBody;
 var TimeStep = 1.0/60.0;
 var PoyBodies = []; // body of cannon.js
 var PoyMeshes = []; // mesh of three.js
+var MonakaBodies = []; 
+var MonakaMeshes = [];
 
 // sphere's status
-var NumOfSphere = 4;
+var NumOfPoy = 4;
+var NumOfMonaka = 3;
 var XRange = 5;
 var YRange = 3;
 var ZRange = 15;

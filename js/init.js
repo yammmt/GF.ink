@@ -27,7 +27,7 @@ function initCamera() {
 function initRenderer() {
     Renderer = new THREE.WebGLRenderer();
     Renderer.setSize(Width, Height);
-    Renderer.setClearColor(0x78cfff, 1); // (color, alpha)
+    Renderer.setClearColor(0x78cfff); // (color, alpha)
     document.body.appendChild(Renderer.domElement);
 }
 
