@@ -92,3 +92,18 @@ function genText() {
     PrintedPointText.position.set(-22, 13, -25);
     Scene.add(PrintedPointText);
 }
+
+function clipPos(myBody) {
+    if(myBody.position.y < -1*YRange) {
+	myBody.position.y = -1*YRange;
+    }
+    else if(myBody.position.y > YRange) {
+        myBody.position.y = YRange;
+    }
+    if(myBody.position.x < -1*XRange) {
+        myBody.position.x = -1*XRange;
+    }
+    else if(myBody.position.x > XRange) {
+        myBody.position.x = XRange;
+    }
+}

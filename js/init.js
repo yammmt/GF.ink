@@ -12,10 +12,10 @@ function initScene() {
 }
 
 function initCamera() {
-    Width = 600;
-    Height = 400;
-    //Width = 0.8*window.innerWidth; // later
-    //Height = 0.8*window.innerHeight;
+    //Width = 600;
+    //Height = 400;
+    Width = 0.8*window.innerWidth; // later
+    Height = 0.8*window.innerHeight;
     var fov = 60;
     var aspect = Width/Height;
     var near = 1;

@@ -45,6 +45,7 @@ function updatePhysics() {
 	    MonakaMeshes[i].quaternion.copy(MonakaBodies[i].quaternion);
 	}
     }
+    clipPos(PlayerBody);
     PlayerMesh.position.copy(PlayerBody.position);
     PlayerMesh.quaternion.copy(PlayerBody.quaternion);
 }
