@@ -44,15 +44,19 @@ function addMonaka() {
     Scene.add(sphereMesh);
 }
 
-function breakPoy() {
-    Point++;
-    genText();
-    sphereSpeed += 0.5;
+function breakPoy(e) {
+    if(e.body.collisionResponse == true) {
+        Point++;
+        genText();
+        sphereSpeed += 0.5;
+    }
 }
 
-function breakMonaka() {
-    Life--;
-    sphereSpeed -= 0.25;
+function breakMonaka(e) {
+    if(e.body.collisionResponse == true) {
+        Life--;
+        sphereSpeed -= 0.25;
+    }
 }
 
 function recalcObj(e) {
@@ -91,4 +95,19 @@ function genText() {
     PrintedPointText = new THREE.Mesh(textGeo, material);
     PrintedPointText.position.set(-22, 13, -25);
     Scene.add(PrintedPointText);
+}
+
+function clipPos(myBody) {
+    if(myBody.position.y < -1*YRange) {
+	myBody.position.y = -1*YRange;
+    }
+    else if(myBody.position.y > YRange) {
+        myBody.position.y = YRange;
+    }
+    if(myBody.position.x < -1*XRange) {
+        myBody.position.x = -1*XRange;
+    }
+    else if(myBody.position.x > XRange) {
+        myBody.position.x = XRange;
+    }
 }
