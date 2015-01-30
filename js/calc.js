@@ -44,15 +44,19 @@ function addMonaka() {
     Scene.add(sphereMesh);
 }
 
-function breakPoy() {
-    Point++;
-    genText();
-    sphereSpeed += 0.5;
+function breakPoy(e) {
+    if(e.body.collisionResponse == true) {
+        Point++;
+        genText();
+        sphereSpeed += 0.5;
+    }
 }
 
-function breakMonaka() {
-    Life--;
-    sphereSpeed -= 0.25;
+function breakMonaka(e) {
+    if(e.body.collisionResponse == true) {
+        Life--;
+        sphereSpeed -= 0.25;
+    }
 }
 
 function recalcObj(e) {
