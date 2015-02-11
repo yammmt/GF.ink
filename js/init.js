@@ -54,12 +54,27 @@ function initCannon() {
 }
 
 function initPlayer() {
+/*
+    // for test
     var playerGeometry = new THREE.BoxGeometry(1, 1, 1);
     var playerMaterial = new THREE.MeshPhongMaterial({color: 0xff8b20});
     PlayerMesh = new THREE.Mesh(playerGeometry, playerMaterial);
     PlayerMesh.position.z = 0;
+    //PlayerMesh.rotation.set(Math.PI/2, 0.3, 0.6);
     Scene.add(PlayerMesh);
+*/
 
+    loader = new THREE.JSONLoader();
+    loader.load( 'model/goldfish.json', function ( geometry, materials ) { 
+       var faceMaterial = new THREE.MeshFaceMaterial( materials );
+       PlayerMesh = new THREE.Mesh( geometry, faceMaterial );
+       PlayerMesh.position.set(0, 0, 0);
+       PlayerMesh.scale.set(0.5, 0.5, 0.5);
+       PlayerMesh.rotation.set(Math.PI, 0, 0);
+       Scene.add(PlayerMesh);
+    } );
+
+    // fix needed
     var shape = new CANNON.Box(new CANNON.Vec3(1, 1, 1));
     PlayerBody = new CANNON.Body({mass: 1});
     PlayerBody.addShape(shape);

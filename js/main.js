@@ -47,7 +47,7 @@ function updatePhysics() {
     }
     clipPos(PlayerBody);
     PlayerMesh.position.copy(PlayerBody.position);
-    PlayerMesh.quaternion.copy(PlayerBody.quaternion);
+    //PlayerMesh.quaternion.copy(PlayerBody.quaternion);
 }
 
 window.addEventListener("keydown", function(e) {
