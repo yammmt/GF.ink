@@ -47,6 +47,7 @@ function updatePhysics() {
     }
     clipPos(PlayerBody);
     PlayerMesh.position.copy(PlayerBody.position);
+    //TmpMesh.position.copy(PlayerBody.position);
     //PlayerMesh.quaternion.copy(PlayerBody.quaternion);
 }
 
