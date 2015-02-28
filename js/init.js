@@ -14,8 +14,8 @@ function initScene() {
 function initCamera() {
     //Width = 600;
     //Height = 400;
-    Width = 0.8*window.innerWidth; // later
-    Height = 0.8*window.innerHeight;
+    Width = window.innerWidth;
+    Height = window.innerHeight;
     var fov = 60;
     var aspect = Width/Height;
     var near = 1;
@@ -66,7 +66,8 @@ function initPlayer() {
 
     loader = new THREE.JSONLoader();
     loader.load( 'model/goldfish_centered.json', function ( geometry, materials ) { 
-       var faceMaterial = new THREE.MeshFaceMaterial( materials );
+       //var faceMaterial = new THREE.MeshFaceMaterial( materials );
+       var faceMaterial = new THREE.MeshBasicMaterial({color: 0xffb240, transparent: true, opacity: 0.9});
        PlayerMesh = new THREE.Mesh( geometry, faceMaterial );
        PlayerMesh.position.set(0, 0, 0);
        PlayerMesh.scale.set(0.5, 0.5, 0.5);

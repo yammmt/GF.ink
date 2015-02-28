@@ -14,7 +14,7 @@ function addPoy() {
     World.add(sphereBody);
 
     var sphereGeometry = new THREE.SphereGeometry(0.5);
-    var sphereMaterial = new THREE.MeshPhongMaterial({color: 0x20ff8b});
+    var sphereMaterial = new THREE.MeshLambertMaterial({color: 0x20ff8b});
     var sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
     sphereMesh.position.set(tmpX, tmpY, tmpZ);
     PoyMeshes.push(sphereMesh);
@@ -37,7 +37,7 @@ function addMonaka() {
     World.add(sphereBody);
 
     var sphereGeometry = new THREE.SphereGeometry(0.5);
-    var sphereMaterial = new THREE.MeshPhongMaterial({color: 0x783800});
+    var sphereMaterial = new THREE.MeshLambertMaterial({color: 0x783800});
     var sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
     sphereMesh.position.set(tmpX, tmpY, tmpZ);
     MonakaMeshes.push(sphereMesh);

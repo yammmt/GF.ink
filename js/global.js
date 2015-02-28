@@ -19,8 +19,8 @@ var MonakaBodies = [];
 var MonakaMeshes = [];
 
 // sphere's status
-var NumOfPoy = 4;
-var NumOfMonaka = 3;
+var NumOfPoy = 6;
+var NumOfMonaka = 4;
 const XRange = 5;
 const YRange = 3;
 const ZRange = 15;
@@ -28,4 +28,4 @@ const ZRange = 15;
 // difficulty
 var Point = 0;
 var Life = 1;
-var sphereSpeed = 4;
+var sphereSpeed = 10;
