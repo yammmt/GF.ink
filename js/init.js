@@ -28,7 +28,7 @@ function initRenderer() {
     Renderer = new THREE.WebGLRenderer();
     Renderer.setSize(Width, Height);
     Renderer.setClearColor(0x78cfff); // (color, alpha)
-    document.body.appendChild(Renderer.domElement);
+    document.getElementById('print_zone').appendChild(Renderer.domElement);
 }
 
 function initLight() {
