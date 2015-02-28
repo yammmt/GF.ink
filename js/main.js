@@ -49,6 +49,20 @@ function updatePhysics() {
     PlayerMesh.position.copy(PlayerBody.position);
     //TmpMesh.position.copy(PlayerBody.position);
     //PlayerMesh.quaternion.copy(PlayerBody.quaternion);
+    function clipPos(myBody) {
+        if(myBody.position.y < -1*YRange) {
+	    myBody.position.y = -1*YRange;
+        }
+        else if(myBody.position.y > YRange) {
+            myBody.position.y = YRange;
+        }
+        if(myBody.position.x < -1*XRange) {
+            myBody.position.x = -1*XRange;
+        }
+        else if(myBody.position.x > XRange) {
+            myBody.position.x = XRange;
+        }
+    }
 }
 
 window.addEventListener("keydown", function(e) {

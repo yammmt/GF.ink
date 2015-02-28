@@ -25,6 +25,10 @@ const XRange = 5;
 const YRange = 3;
 const ZRange = 15;
 
+// glass
+var GlassMeshes = [];
+var GlassNum = 3;
+
 // difficulty
 var Point = 0;
 var Life = 1;
