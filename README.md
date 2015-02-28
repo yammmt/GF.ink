@@ -1,10 +1,14 @@
 # GF.ink
+---
 
-##Abst
-OpenGL -> WebGL (Three.js) + Cannon.js
+##Abstract
+オレンジの魚を操作し, 緑色の球に体当たりして得点を稼ぐゲームです.   
+茶色の球に衝突するとゲームオーバーとなります.  
+
+3DCG 表示には Three.js (WebGL) を, 衝突判定には Cannon.js を使用しています.  
 
 ##How to play
-Push any cursor keys to move player (orange box).
+矢印キーを押すと, それぞれのキーに対応した方向へ魚が動きます.   
+何も操作せずとも, 下方向へは常に動きます. 
 
-If you catch green sphere, point++. 
-But if you catch brown sphere, game will be over.
+ゲーム中に難易度は変化しません. 
