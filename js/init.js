@@ -3,7 +3,7 @@ function initThree() {
     initCamera();
     initRenderer();
     initLight();
-    initAxis();
+    //initAxis();
     initText();
 }
 
@@ -12,8 +12,6 @@ function initScene() {
 }
 
 function initCamera() {
-    //Width = 600;
-    //Height = 400;
     Width = window.innerWidth;
     Height = window.innerHeight;
     var fov = 60;
@@ -27,7 +25,7 @@ function initCamera() {
 function initRenderer() {
     Renderer = new THREE.WebGLRenderer();
     Renderer.setSize(Width, Height);
-    Renderer.setClearColor(0x78cfff); // (color, alpha)
+    Renderer.setClearColor(0x53c8ea); // (color, alpha)
     document.getElementById('print_zone').appendChild(Renderer.domElement);
 }
 
@@ -56,7 +54,7 @@ function initCannon() {
 function initPlayer() {
 
 /*
-    // for test
+    // for collision
     var playerGeometry = new THREE.BoxGeometry(0.3, 0.5, 1.1);
     var playerMaterial = new THREE.MeshPhongMaterial({color: 0xff8b20});
     TmpMesh = new THREE.Mesh(playerGeometry, playerMaterial);
@@ -79,7 +77,7 @@ function initPlayer() {
     var shape = new CANNON.Box(new CANNON.Vec3(0.3, 0.5, 1.1));
     PlayerBody = new CANNON.Body({mass: 1});
     PlayerBody.addShape(shape);
-    PlayerBody.velocity.set(0, -1.5, 0);
+    PlayerBody.velocity.set(0, -2.3, 0);
     World.add(PlayerBody);
 }
 

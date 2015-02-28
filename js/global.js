@@ -4,7 +4,7 @@ var Camera;
 var TopCamera;
 var Renderer;
 var Width, Height;
-const DeltaD = 0.1;
+const DeltaD = 0.2;
 var PlayerMesh;
 //var TmpMesh;
 var PrintedPointText;
@@ -12,7 +12,7 @@ var PrintedPointText;
 // Cannon.js
 var World;
 var PlayerBody;
-const TimeStep = 1.0/60.0;
+const TimeStep = 1.0/60.0; // 60fps
 var PoyBodies = []; // body of cannon.js
 var PoyMeshes = []; // mesh of three.js
 var MonakaBodies = []; 
@@ -26,8 +26,9 @@ const YRange = 3;
 const ZRange = 15;
 
 // glass
+var NumOfGlass = 8;
 var GlassMeshes = [];
-var GlassNum = 3;
+var GlassMeshSpeed = 0.25;
 
 // difficulty
 var Point = 0;

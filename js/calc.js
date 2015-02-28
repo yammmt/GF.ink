@@ -44,6 +44,29 @@ function addMonaka() {
     Scene.add(sphereMesh);
 }
 
+function addGlass() {
+    var tmpX = (Math.random()*10+5)*plusOrMinus();
+    var tmpY = -8;
+    var tmpZ = -1*(Math.random()*20+10);
+
+    var loader = new THREE.JSONLoader();
+    if(Math.random() > 0.5) {
+	var fileName = 'model/glass01.json';
+    }
+    else {
+	var fileName = 'model/glass02.json';
+    }
+    loader.load(fileName, function(geometry, materials) {
+	var faceMaterial = new THREE.MeshFaceMaterial(materials);
+	var glassMesh = new THREE.Mesh(geometry, faceMaterial);
+	glassMesh.scale.set(0.6, 0.6, 0.6);
+	glassMesh.position.set(tmpX, tmpY, tmpZ);
+	glassMesh.rotation.set(0, Math.PI/2, 0);
+	GlassMeshes.push(glassMesh);
+	Scene.add(glassMesh)
+    })
+}
+
 function breakPoy(e) {
     if(e.body.collisionResponse == true) {
         Point++;
