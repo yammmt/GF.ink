@@ -45,7 +45,7 @@ function addMonaka() {
 }
 
 function addGlass() {
-    var tmpX = (Math.random()*XRange+2)*plusOrMinus();
+    var tmpX = (Math.random()*XRange+3)*plusOrMinus();
     var tmpY = -8.0;
     var tmpZ = -1*(Math.random()*ZRange+9);
 
