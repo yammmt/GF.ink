@@ -45,9 +45,9 @@ function addMonaka() {
 }
 
 function addGlass() {
-    var tmpX = (Math.random()*10+5)*plusOrMinus();
-    var tmpY = -8;
-    var tmpZ = -1*(Math.random()*20+10);
+    var tmpX = (Math.random()*XRange+2)*plusOrMinus();
+    var tmpY = -8.0;
+    var tmpZ = -1*(Math.random()*ZRange+9);
 
     var loader = new THREE.JSONLoader();
     if(Math.random() > 0.5) {
@@ -65,6 +65,19 @@ function addGlass() {
 	GlassMeshes.push(glassMesh);
 	Scene.add(glassMesh)
     })
+}
+
+function addBubble() {
+    var tmpX = Math.random()*XRange*plusOrMinus();
+    var tmpY = Math.random()*YRange*plusOrMinus();
+    var tmpZ = Math.random()*ZRange-3;
+
+    var bubbleGeometry = new THREE.SphereGeometry(0.2);
+    var bubbleMaterial = new THREE.MeshBasicMaterial({color: 0x75d7ff, transparent: true, opacity: 0.9});
+    var bubbleMesh = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
+    bubbleMesh.position.set(tmpX, tmpY, tmpZ);
+    BubbleMeshes.push(bubbleMesh);
+    Scene.add(bubbleMesh);
 }
 
 function breakPoy(e) {

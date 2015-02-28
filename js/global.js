@@ -30,6 +30,11 @@ var NumOfGlass = 8;
 var GlassMeshes = [];
 var GlassMeshSpeed = 0.25;
 
+// bubble
+var NumOfBubble = 30;
+var BubbleMeshes = [];
+var BubbleMeshSpeed = 0.3;
+
 // difficulty
 var Point = 0;
 var Life = 1;

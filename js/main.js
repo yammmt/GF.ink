@@ -11,6 +11,9 @@ function main() {
     for(var i=0; i<NumOfGlass; i++) {
 	addGlass();
     }
+    for(var i=0; i<NumOfBubble; i++) {
+	addBubble();
+    }
     PlayerBody.addEventListener("collide", recalcObj);
     loop();
 }
@@ -48,7 +51,6 @@ function updatePhysics() {
 	    MonakaMeshes[i].quaternion.copy(MonakaBodies[i].quaternion);
 	}
     }
-    clipPos(PlayerBody);
     for(var i=0; i<GlassMeshes.length; i++) {
 	if(GlassMeshes[i].position.z > 3) {
 	    GlassMeshes[i].position.z = -2*ZRange;
@@ -57,6 +59,15 @@ function updatePhysics() {
 	    GlassMeshes[i].position.z += GlassMeshSpeed;
 	}
     }
+    for(var i=0; i<BubbleMeshes.length; i++) {
+	if(BubbleMeshes[i].position.y > 5) {
+	    BubbleMeshes[i].position.y = -3*Math.random()-2;
+	}
+	else {
+	    BubbleMeshes[i].position.y += BubbleMeshSpeed;
+	}
+    }
+    clipPos(PlayerBody);
     PlayerMesh.position.copy(PlayerBody.position);
     //TmpMesh.position.copy(PlayerBody.position);
     //PlayerMesh.quaternion.copy(PlayerBody.quaternion);
