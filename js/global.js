@@ -4,7 +4,8 @@ var Camera;
 var TopCamera;
 var Renderer;
 var Width, Height;
-const DeltaD = 0.2;
+const DeltaD = 0.2; // プレイヤーの移動量
+const LowPower = -1.8; // プレイヤーの重力
 var PlayerMesh;
 //var TmpMesh;
 var PrintedPointText;

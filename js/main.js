@@ -98,9 +98,11 @@ window.addEventListener("keydown", function(e) {
     else if(e.keyCode == 39) { // right
 	PlayerBody.position.x = PlayerBody.position.x+DeltaD;
     }
+    /*
     else if(e.keyCode == 40) { // down
 	PlayerBody.position.y = PlayerBody.position.y-DeltaD;
     }
+    */
 });
 
 window.addEventListener("DOMContentLoaded", main, false);

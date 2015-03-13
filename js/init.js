@@ -77,7 +77,7 @@ function initPlayer() {
     var shape = new CANNON.Box(new CANNON.Vec3(0.3, 0.5, 1.1));
     PlayerBody = new CANNON.Body({mass: 1});
     PlayerBody.addShape(shape);
-    PlayerBody.velocity.set(0, -4.4, 0);
+    PlayerBody.velocity.set(0, LowPower, 0);
     World.add(PlayerBody);
 }
 
