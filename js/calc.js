@@ -3,7 +3,7 @@ function addPoy() {
     var tmpY = Math.random()*YRange*plusOrMinus();
     var tmpZ = -1*(Math.random()*ZRange+9);
 
-    var sphereShape = new CANNON.Sphere(0.3);
+    var sphereShape = new CANNON.Sphere(0.5);
     var sphereBody = new CANNON.Body({mass: 1});
     sphereBody.addShape(sphereShape);
     sphereBody.velocity.set(0, 0, sphereSpeed);
@@ -26,7 +26,7 @@ function addMonaka() {
     var tmpY = Math.random()*YRange*plusOrMinus();
     var tmpZ = -1*(Math.random()*ZRange+9);
 
-    var sphereShape = new CANNON.Sphere(0.3);
+    var sphereShape = new CANNON.Sphere(0.5);
     var sphereBody = new CANNON.Body({mass: 1});
     sphereBody.addShape(sphereShape);
     sphereBody.velocity.set(0, 0, sphereSpeed);
